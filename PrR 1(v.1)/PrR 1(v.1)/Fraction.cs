@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Numerics;
@@ -130,7 +130,7 @@ namespace PrR_1_v._1_
 
             for (int i = 0; i < num - 2; i++)
             {
-                frac *= frac;
+                frac *= cfrac;//*cfrac
             }
             frac.Reduction();
             return frac;
@@ -188,6 +188,11 @@ namespace PrR_1_v._1_
             var @int = new BigInteger();
             var temp = new BigInteger();
             @int = 0;
+            if(frac.Numerator < 0)
+            {
+                frac.Numerator *= -1;
+                result.Append("-");
+            }
             while (frac.Numerator > frac.Denominator) {
                 frac.Numerator -= frac.Denominator;
                 @int++;
