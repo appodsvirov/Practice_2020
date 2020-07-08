@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using PrR_1_v._1_;
 
 namespace PrR_3_v._1_
@@ -20,11 +20,7 @@ namespace PrR_3_v._1_
                 throw new ArgumentException("The values must be of different characters");
 
             if (x0 > x1)
-            {
-                var temp = new Fraction(x0);
-                x0 = x1;
-                x1 = temp;
-            }
+                throw new ArgumentException("The first argument is the left border");
 
             var half = new Fraction((x1 + x0) * new Fraction(1, 2));
             var Vhalf = new Fraction(F(half));
@@ -38,7 +34,7 @@ namespace PrR_3_v._1_
             if (Vhalf * Vx1 < frac0)
                 return Finding_the_root(half, x1, F, eps);
 
-            throw new InvalidProgramException("It's impossible");
+            throw new InvalidOperationException("It's impossible");
         }
         static void Main(string[] args)
         {
@@ -68,7 +64,7 @@ namespace PrR_3_v._1_
             {
                 Console.WriteLine("Arguments are bad");
             }
-            catch(InvalidProgramException)
+            catch(InvalidOperationException)
             {
                 Console.WriteLine("Program is break :-(");
             }
