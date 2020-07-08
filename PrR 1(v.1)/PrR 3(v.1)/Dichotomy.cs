@@ -68,6 +68,10 @@ namespace PrR_3_v._1_
             {
                 Console.WriteLine(ex.Message);
             }
+            catch (DivideByZeroException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
         }
     }
