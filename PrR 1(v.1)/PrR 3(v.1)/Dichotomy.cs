@@ -22,7 +22,7 @@ namespace PrR_3_v._1_
             if (x0 > x1)
                 throw new ArgumentException("The first argument is the left border");
 
-            var half = new Fraction((x1 + x0) * new Fraction(1, 2));
+            var half = (x1 + x0) * new Fraction(1, 2);
             var Vhalf = new Fraction(F(half));
 
             if (Vhalf < eps && Vhalf * new Fraction(-1, 1) < eps)  
@@ -60,15 +60,16 @@ namespace PrR_3_v._1_
                     display3, new Fraction(1, 1000000)), 10)
                     );   
             }
-            catch (ArgumentException)
+            catch (ArgumentException ex)
             {
-                Console.WriteLine("Arguments are bad");
+                Console.WriteLine("Arguments are bad : {0}", ex.Message);
             }
-            catch(InvalidOperationException)
+            catch(InvalidOperationException ex)
             {
-                Console.WriteLine("Program is break :-(");
+                Console.WriteLine(ex.Message);
             }
 
         }
     }
 }
+
