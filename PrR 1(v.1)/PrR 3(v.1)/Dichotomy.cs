@@ -12,6 +12,8 @@ namespace PrR_3_v._1_
         public static Fraction Finding_the_root(Fraction x0, Fraction x1,
             Func F, Fraction eps)
         {
+            if (x0 is null || x1 is null || F is null || eps is null)
+                throw new ArgumentException("Bad arguments");
             var Vx0 = new Fraction(F(x0));
             var Vx1 = new Fraction(F(x1));
             var frac0 = new Fraction(0, 1);
